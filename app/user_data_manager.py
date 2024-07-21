@@ -1,6 +1,7 @@
 import json
-
-PATH = "../data/users.json"
+import os
+wd = os.getcwd()
+PATH = f'{wd}/data/users.json'
 
 class UserDataLoader:
     def __init__(self):

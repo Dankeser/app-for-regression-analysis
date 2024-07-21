@@ -39,24 +39,24 @@ class LoginCheck:
     # login_check benutzt password_check um sicherzustellen, dass richtige Passwort eingegeben wird.
     def login_check(self,benutzername: object, passwort: object) -> bool:
         if len(benutzername.get())==0:
-            self.popup = PopUpFrame(self.master, 'Bitte geben Sie ihren Benutzername.')
+            self.popup = PopUpFrame(self.master, 'Please give an username.')
             self.g()
             return False
         elif len(passwort.get())==0:
-            self.popup = PopUpFrame(self.master, 'Bitte geben Sie ihren Passwort.')
+            self.popup = PopUpFrame(self.master, 'Please give a password.')
             self.g()
             return False
         else:
             if len(benutzername.get()) < 5 or len(benutzername.get()) > 20:
-                self.popup = PopUpFrame(self.master,'Die Lange von Benutzername darf nicht kleiner als 5 und grösser als 20 sein.')
+                self.popup = PopUpFrame(self.master,'The length of username cannot be less than 5 and greater than 20.')
                 self.g()
                 return False
             elif len(passwort.get()) < 5 or len(passwort.get()) > 20:
-                self.popup = PopUpFrame(self.master,'Die Lange von Passwort darf nicht kleiner als 5 und grösser als 20 sein.')
+                self.popup = PopUpFrame(self.master,'The length of password cannot be less than 5 and greater than 20.')
                 self.g()
                 return False
             elif not self.password_check(benutzername.get(),passwort.get()):
-                self.popup = PopUpFrame(self.master,'Passwort passt nicht.')
+                self.popup = PopUpFrame(self.master,"Password doesn't matcth.")
                 self.g()
                 return False
         return True
@@ -80,40 +80,40 @@ class RegisterCheck:
     #diese Parametern sind in Form von Objekt
     def register_check(self,vorname,benutzername,passwort,passwort2) -> bool:
         if len(vorname.get())==0:
-            self.popup = PopUpFrame(self.master, 'Bitte geben Sie ihren Vorname.')
+            self.popup = PopUpFrame(self.master, 'Please give a name.')
             self.g()
             return False
         elif len(benutzername.get())==0:
-            self.popup = PopUpFrame(self.master, 'Bitte geben Sie ihren Benutzername.')
+            self.popup = PopUpFrame(self.master, 'Please give an username.')
             self.g()
             return False
         elif len(passwort.get())==0:
-            self.popup = PopUpFrame(self.master, 'Bitte geben Sie ihren Passwort')
+            self.popup = PopUpFrame(self.master, 'Please give a password.')
             self.g()
             return False
         elif len(passwort2.get())==0:
-            self.popup = PopUpFrame(self.master, 'Bitte geben Sie ihren Passwort wieder.')
+            self.popup = PopUpFrame(self.master, 'Please give a password again.')
             self.g()
             return False
         else:
             if len(vorname.get()) > 20:
-                self.popup = PopUpFrame(self.master, 'Die Lange von Vorname darf nicht grösser als 20 sein.')
+                self.popup = PopUpFrame(self.master, 'The length of the name must not be greater than 20.')
                 self.g()
                 return False
             elif len(benutzername.get()) < 5 or len(benutzername.get()) > 20:
-                self.popup = PopUpFrame(self.master,'Die Lange von Benutzername darf nicht kleiner als 5 und grösser als 20 sein.')
+                self.popup = PopUpFrame(self.master,'The length of the username must not be less than 5 and greater than 20.')
                 self.g()
                 return False
             elif len(passwort.get()) < 5 or len(passwort.get()) > 20:
-                self.popup = PopUpFrame(self.master,'Die Lange von Passwort darf nicht kleiner als 5 und grösser als 20 sein.')
+                self.popup = PopUpFrame(self.master,'The length of the password must not be less than 5 and greater than 20.')
                 self.g()
                 return False
             elif passwort.get() != passwort2.get():
-                self.popup = PopUpFrame(self.master, 'Passwörter sind nicht gleich.')
+                self.popup = PopUpFrame(self.master, 'Passwords are not the same.')
                 self.g()
                 return False
             elif self.is_username_used_before(benutzername):
-                self.popup = PopUpFrame(self.master, 'Es gibt schon so einer Benutzer.')
+                self.popup = PopUpFrame(self.master, 'There is already such a user.')
                 self.g()
                 return False
         return True

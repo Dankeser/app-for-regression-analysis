@@ -26,13 +26,13 @@ class RightBottomFrame(ctk.CTkFrame,Content,PropertyMixin):
         self.content= self.load_content()
         self.filename = None
 
-        self.filebutton=ctk.CTkButton(self,text='eine CSV Datei wählen',command=self.select_file)
+        self.filebutton=ctk.CTkButton(self,text='select .csv file',command=self.select_file)
         self.filebutton.grid(row=0,column=1,padx=10,pady=10)
 
-        self.entry = ctk.CTkEntry(self,placeholder_text='titel eingeben')
+        self.entry = ctk.CTkEntry(self,placeholder_text='give a titel')
         self.entry.grid(row=0, column=3, padx=10, pady=10)
 
-        self.create=ctk.CTkButton(self,text='erstellen',command=self.create_regression)
+        self.create=ctk.CTkButton(self,text='draw',command=self.create_regression)
         self.create.grid(row=0,column=4,padx=10,pady=10)
 
     def g(self) -> NoReturn:
@@ -42,15 +42,15 @@ class RightBottomFrame(ctk.CTkFrame,Content,PropertyMixin):
 
     def create_regression(self):
         if self.filename is None:
-            self.popup = PopUpFrame(self.master.master, 'Bitte wählen Sie eine Datei aus.')
+            self.popup = PopUpFrame(self.master.master, 'Please select a file.')
             self.g()
             return
         if len(self.entry.get()) == 0:
-            self.popup = PopUpFrame(self.master.master,'Bitte geben Sie einen Titel.')
+            self.popup = PopUpFrame(self.master.master,'Please give a titel.')
             self.g()
             return
         if not self.content_name_check(self.entry.get()):
-            self.popup = PopUpFrame(self.master.master, 'Die Grafik ist schon vorhanden.')
+            self.popup = PopUpFrame(self.master.master, 'The graph is already exist.')
             self.g()
             return
         else:
@@ -73,7 +73,7 @@ class RightBottomFrame(ctk.CTkFrame,Content,PropertyMixin):
 
     def select_file(self):
         filetypes = [('csv files', '*.csv')]
-        self.filename = fd.askopenfilename(title='eine CSV Datei öffnen', filetypes=filetypes,initialdir='/')
+        self.filename = fd.askopenfilename(title='open a .csv file', filetypes=filetypes,initialdir='/')
         self.label = ctk.CTkLabel(self,text=self.filename)
         self.label.grid(row=0,column=2,padx=10,pady=10)
 
@@ -112,11 +112,11 @@ class LeftFrame(ctk.CTkScrollableFrame, Content, PropertyMixin):
                 if self.selected == titel:
                     ctk.CTkButton(self, text=titel, corner_radius=0,command=lambda t=titel, x=x_werte, y=y_werte, i=index: self.button_callback(t,x,y,i), width=100).grid(row=index, column=0,padx=(10,0),pady=(10,0), sticky='ew', columnspan=2)
 
-                    ctk.CTkButton(self,fg_color='red',hover=False, text='löschen', corner_radius=0,command=lambda t=titel, i=index: self.delete_button_callback(t,i), width=20).grid(row=index,column=2,padx=(0,10),pady=(10,0), sticky='ew')
+                    ctk.CTkButton(self,fg_color='red',hover=False, text='destroy', corner_radius=0,command=lambda t=titel, i=index: self.delete_button_callback(t,i), width=20).grid(row=index,column=2,padx=(0,10),pady=(10,0), sticky='ew')
                 else:
                     ctk.CTkButton(self,text=titel,corner_radius=0, command=lambda t=titel, x=x_werte, y=y_werte, i=index: self.button_callback(t,x,y,i), width=100).grid(row=index,column=0,padx=10,pady=(10,0), sticky='ew', columnspan=2)
 
-                    ctk.CTkButton(self, fg_color='red', hover=False, text='löschen',corner_radius=0,command=lambda t=titel, i=index: self.delete_button_callback(t,i), width=20).grid(row=index, column=2, padx=(0, 10),pady=(10, 0),sticky='ew')
+                    ctk.CTkButton(self, fg_color='red', hover=False, text='destroy',corner_radius=0,command=lambda t=titel, i=index: self.delete_button_callback(t,i), width=20).grid(row=index, column=2, padx=(0, 10),pady=(10, 0),sticky='ew')
 
     def button_callback(self,t,x,y,i):
         self.selected=t

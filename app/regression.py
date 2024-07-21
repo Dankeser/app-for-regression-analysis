@@ -68,7 +68,7 @@ class Regression:
             a4 = axes.set_xlabel(self.titlex)
             a5 = axes.set_ylabel(self.titley)
 
-        axes.legend(["Kovarianz: "+str(cov(self.x,self.y))])
+        axes.legend(["Covarianz: "+str(cov(self.x,self.y))])
         setattr(self.master,"grafik"+str(self.index),self.canvas.get_tk_widget())
         getattr(self.master,"grafik"+str(self.index)).pack(side='top',expand=1)
     
