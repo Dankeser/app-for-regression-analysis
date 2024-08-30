@@ -1,6 +1,8 @@
 # App for regression analysis
 I wrote an application with Customtkinter, in this application you can view the regression curve of 2d graphs with .csv extension files in the following format. I have coded the login and registration features to put my knowledge into practice. I save the user password by hashing it in the users.json file and save the previously displayed graphs with the user password by encrypting them. so that when logging in, it is not necessary to open the .csv files again.
 
+You can use dataset.csv file for test.
+
 format:
 
 ![example_csv](https://github.com/user-attachments/assets/63148aad-c23d-4806-bdfa-7682a828950c)
