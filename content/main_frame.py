@@ -110,13 +110,13 @@ class LeftFrame(ctk.CTkScrollableFrame, Content, PropertyMixin):
                 x_werte = i['x']
                 y_werte = i['y']
                 if self.selected == titel:
-                    ctk.CTkButton(self, text=titel, corner_radius=10,command=lambda t=titel, x=x_werte, y=y_werte, i=index: self.button_callback(t,x,y,i), width=100).grid(row=index, column=0,padx=(10,0),pady=(10,0), sticky='ew', columnspan=2)
+                    ctk.CTkButton(self, text=titel, corner_radius=0,command=lambda t=titel, x=x_werte, y=y_werte, i=index: self.button_callback(t,x,y,i), width=100).grid(row=index, column=0,padx=(10,0),pady=(10,0), sticky='ew', columnspan=2)
 
-                    ctk.CTkButton(self,fg_color='red',hover=False, text='destroy', corner_radius=20,command=lambda t=titel, i=index: self.delete_button_callback(t,i), width=20).grid(row=index,column=2,padx=(0,10),pady=(10,0), sticky='ew')
+                    ctk.CTkButton(self,fg_color='#f12323',hover=False, text='destroy', corner_radius=0,command=lambda t=titel, i=index: self.delete_button_callback(t,i), width=20).grid(row=index,column=2,padx=(0,10),pady=(10,0), sticky='ew')
                 else:
-                    ctk.CTkButton(self,text=titel,corner_radius=10, command=lambda t=titel, x=x_werte, y=y_werte, i=index: self.button_callback(t,x,y,i), width=100).grid(row=index,column=0,padx=10,pady=(10,0), sticky='ew', columnspan=2)
+                    ctk.CTkButton(self,text=titel,corner_radius=0, command=lambda t=titel, x=x_werte, y=y_werte, i=index: self.button_callback(t,x,y,i), width=100).grid(row=index,column=0,padx=10,pady=(10,0), sticky='ew', columnspan=2)
 
-                    ctk.CTkButton(self, fg_color='red', hover=False, text='destroy',corner_radius=20,command=lambda t=titel, i=index: self.delete_button_callback(t,i), width=20).grid(row=index, column=2, padx=(0, 10),pady=(10, 0),sticky='ew')
+                    ctk.CTkButton(self, fg_color='#f12323', hover=False, text='destroy',corner_radius=0,command=lambda t=titel, i=index: self.delete_button_callback(t,i), width=20).grid(row=index, column=2, padx=(0, 10),pady=(10, 0),sticky='ew')
 
     def button_callback(self,t,x,y,i):
         self.selected=t
