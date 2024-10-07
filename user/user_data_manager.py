@@ -3,7 +3,6 @@ import os
 from typing import NoReturn
 
 wd = os.getcwd()
-print(wd)
 PATH = f'{wd}/data/users.json'
 
 class UserDataLoader:
@@ -17,7 +16,10 @@ class UserDataLoader:
          return self.users[self.active_user_index]
 
     def load_user_data(self):
-        with open(PATH,'r') as file:
+        with open(PATH,'r+') as file:
+            if file.read() == "":
+                file.write("[]")
+        with open(PATH,"r") as file:
             return json.load(file)
 
     def update(self,new):
