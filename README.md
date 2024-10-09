@@ -19,7 +19,7 @@ source venv/bin/activate
 ```
 - Install requirements.txt
 ```python
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 - Start the applicaton:
 ```python
